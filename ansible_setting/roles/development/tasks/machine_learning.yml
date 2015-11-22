@@ -39,7 +39,6 @@
   pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
   with_items:
   - numpy 
-  - scipy 
   - gensim 
   - cython 
   - ipython 
@@ -50,6 +49,7 @@
 - name: pip install machine learning2 
   pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
   with_items:
+  - scipy 
   - sklearn 
   sudo: yes 
   tags: global_python_libraries
