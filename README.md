@@ -1,2 +1,0 @@
-TechCircle #6
-------

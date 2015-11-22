@@ -1,0 +1,33 @@
+---
+- name: apt-get install basic pkg
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - libssl-dev
+  - libbz2-dev
+  - libreadline-dev
+  - libsqlite3-dev
+  tags: install_pyenv
+
+- name: git clone pyenv 
+  git: repo=https://github.com/yyuu/pyenv.git dest=/home/vagrant/.pyenv accept_hostkey=yes
+  sudo: yes
+  tags: pyenv 
+
+- name:  set .bash_profile config by copying from file 
+  template: src=bash_profile.j2 dest=/home/vagrant/.bash_profile 
+  sudo: yes 
+  tags: pyenv 
+
+- name: install pyenv's python and rehash
+  shell: . /home/vagrant/.bash_profile && pyenv install {{ python_version }} && pyenv rehash && pyenv global {{ python_version }}
+  sudo: yes 
+  tags: install_pyenv
+
+- name: pip install global python pkgs
+  pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
+  with_items:
+  - pip
+  - virtualenv
+  sudo: yes 
+  tags: global_python_libraries

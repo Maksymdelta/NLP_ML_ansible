@@ -1,0 +1,55 @@
+---
+- name: apt-get install machine learning 
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - libatlas-base-dev 
+  - mecab
+  - swig 
+  - libmecab-dev 
+  - mecab-ipadic 
+  - python-mecab 
+  - g++ 
+  - python-numpy
+  - python-scipy
+  - python-matplotlib
+  - ipython
+  - ipython-notebook
+  - python-pandas
+  - python-sympy
+  - python-nose 
+  tags: install_machine_learning
+
+- name: install mecab-ipadic
+  shell: aptitude install mecab-ipadic-utf8 
+  sudo: yes 
+  tags: install mecab-ipadic
+
+#- name: download wago 
+#  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/wago.121808.pn 
+#  sudo: yes 
+#  tags: download wago
+
+#- name: download pn trim
+#  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/pn.csv.m3.120408.trim 
+#  sudo: yes 
+#  tags: download pn trim
+
+- name: pip install machine learning 
+  pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
+  with_items:
+  - numpy 
+  - scipy 
+  - gensim 
+  - cython 
+  - ipython 
+  - notebook
+  sudo: yes 
+  tags: global_python_libraries
+
+- name: pip install machine learning2 
+  pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
+  with_items:
+  - sklearn 
+  sudo: yes 
+  tags: global_python_libraries

@@ -1,0 +1,26 @@
+- name: download conda 
+  shell: wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.4.0-Linux-x86_64.sh 
+  sudo: yes 
+  tags: download conda 
+
+# conda install method specially you have to log in and install is a better 
+
+- name: update bashrc 
+  lineinfile: >
+    dest="/home/vagrant/.bashrc"
+    create=yes
+    line="{{ item.line }}"
+  with_items:
+  - line: export PATH="/home/vagrant/anaconda3/pkgs/conda-3.18.3-py35_0/bin:$PATH" 
+  sudo: yes
+  tags: configure 
+
+- name: setup numba by conda 
+  command: source /home/vagrant/.bashrc chdir=/home/vagrant 
+  sudo: yes 
+  tags: install numba 
+
+- name: install numba by conda 
+  shell: conda install numba 
+  sudo: yes 
+  tags: install numba 
