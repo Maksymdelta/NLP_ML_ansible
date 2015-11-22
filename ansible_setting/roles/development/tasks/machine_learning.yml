@@ -25,15 +25,15 @@
   sudo: yes 
   tags: install mecab-ipadic
 
-#- name: download wago 
-#  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/wago.121808.pn 
-#  sudo: yes 
-#  tags: download wago
+- name: download wago 
+  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/wago.121808.pn 
+  sudo: yes 
+  tags: download wago
 
-#- name: download pn trim
-#  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/pn.csv.m3.120408.trim 
-#  sudo: yes 
-#  tags: download pn trim
+- name: download pn trim
+  shell: wget http://www.cl.ecei.tohoku.ac.jp/resources/sent_lex/pn.csv.m3.120408.trim 
+  sudo: yes 
+  tags: download pn trim
 
 - name: pip install machine learning 
   pip: name={{ item }} state=latest executable=/home/vagrant/.pyenv/shims/pip
