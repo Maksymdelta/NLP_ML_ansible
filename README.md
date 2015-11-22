@@ -23,9 +23,8 @@ See http://docs.ansible.com/intro_installation.html
 $ vim ansible_hosts
 ```
 
+If you use Amazon ec2 you will bellow
 ```text:ansible_hosts
-If you use ec2 site you will bellow
-
 [development]
 xx.xx.xx.xx ansible_connection=ssh ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/hoge.pem
 ```
