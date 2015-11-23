@@ -6,6 +6,7 @@
   - libatlas-base-dev 
   - mecab
   - swig 
+  - nkf 
   - libmecab-dev 
   - mecab-ipadic 
   - python-mecab 
@@ -18,7 +19,13 @@
   - python-pandas
   - python-sympy
   - python-nose 
+  - golang 
   tags: install_machine_learning
+
+- name: install direnv
+  shell: git clone https://github.com/direnv/direnv && cd direnv && make install 
+  sudo: yes 
+  tags: install direnv
 
 - name: install mecab-ipadic
   shell: aptitude install mecab-ipadic-utf8 
