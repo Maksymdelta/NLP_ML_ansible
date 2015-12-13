@@ -24,3 +24,11 @@
   shell: add-apt-repository ppa:webupd8team/java
   sudo: yes 
   tags: install_java
+
+- name: apt-get install java 
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - oracle-java7-installer 
+  tags: initial_setup
+
