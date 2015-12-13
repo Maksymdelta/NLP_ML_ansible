@@ -17,4 +17,10 @@
   - gcc
   - build-essential
   - gfortran
+  - e2fslibs-dev
   tags: initial_setup
+
+- name: install java 
+  shell: add-apt-repository ppa:webupd8team/java
+  sudo: yes 
+  tags: install_java

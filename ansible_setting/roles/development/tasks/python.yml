@@ -29,5 +29,6 @@
   with_items:
   - pip
   - virtualenv
+  - awscli 
   sudo: yes 
   tags: global_python_libraries

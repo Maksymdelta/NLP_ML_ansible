@@ -50,6 +50,7 @@
   - cython 
   - ipython 
   - notebook
+  - boto==2.35.1 
   sudo: yes 
   tags: global_python_libraries
 
