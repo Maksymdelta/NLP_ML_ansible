@@ -30,5 +30,6 @@
   - pip
   - virtualenv
   - awscli 
+  - boto 
   sudo: yes 
   tags: global_python_libraries
