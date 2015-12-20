@@ -18,4 +18,5 @@
   - build-essential
   - gfortran
   - e2fslibs-dev
+  - openjdk-7-jre-headless
   tags: initial_setup
