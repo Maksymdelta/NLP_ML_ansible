@@ -1,0 +1,28 @@
+- name: download jenkins 
+  shell: wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add - 
+  tags: jenkins 
+
+- name: add key jenkins 
+  shell: apt-key add - 
+  sudo: yes 
+  tags: jenkins 
+
+- name: update bashrc 
+  lineinfile: >
+    dest="/home/vagrant/.bashrc"
+    create=yes
+    line="{{ item.line }}"
+  with_items:
+  - line: export PATH="/home/vagrant/anaconda3/pkgs/conda-3.18.3-py35_0/bin:$PATH" 
+  sudo: yes
+  tags: configure 
+
+- name: setup numba by conda 
+  command: source /home/vagrant/.bashrc chdir=/home/vagrant 
+  sudo: yes 
+  tags: install numba 
+
+- name: install numba by conda 
+  shell: conda install numba 
+  sudo: yes 
+  tags: install numba 

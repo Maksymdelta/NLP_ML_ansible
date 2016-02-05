@@ -51,7 +51,6 @@
   - ipython 
   - notebook
   - boto==2.35.1 
-  - sqlite3 
   - PyYAML 
   - requests==2.9.0 
   sudo: yes 
@@ -64,3 +63,13 @@
   - sklearn 
   sudo: yes 
   tags: global_python_libraries
+
+- name: install jubatus 
+  shell: https://github.com/jubatus/jubatus-installer.git && cd jubatus-installer && ./install.sh && ./install_python.sh
+  sudo: yes 
+  tags: install jubatus 
+
+- name: source jubatus 
+  shell: source /home/vagrant/local/share/jubatus/jubatus.profile 
+  sudo: yes 
+  tags: install jubatus 
