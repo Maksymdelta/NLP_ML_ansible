@@ -20,6 +20,10 @@
   - python-sympy
   - python-nose 
   - golang 
+  - mecab-ipadic-utf8 
+  - make 
+  - curl 
+  - xz-utils
   tags: install_machine_learning
 
 - name: install direnv
@@ -53,6 +57,7 @@
   - boto==2.35.1 
   - PyYAML 
   - requests==2.9.0 
+  - mecab-python3 
   sudo: yes 
   tags: global_python_libraries
 
@@ -73,3 +78,13 @@
   shell: source /home/vagrant/local/share/jubatus/jubatus.profile 
   sudo: yes 
   tags: install jubatus 
+
+- name: install mecab-ipadic 
+  shell: git clone --depth 1 https://github.com/neologd/mecab-ipadic-neologd.git
+  sudo: yes 
+  tags: install mecab 
+
+- name: install mecab-ipadic 
+  shell: ./bin/install-mecab-ipadic-neologd -n -y chdir=mecab-ipadic-neologd.git
+  sudo: yes 
+  tags: install mecab 

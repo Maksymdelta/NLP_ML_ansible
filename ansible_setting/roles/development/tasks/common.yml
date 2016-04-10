@@ -19,4 +19,17 @@
   - gfortran
   - e2fslibs-dev
   - openjdk-7-jre-headless
+  - mercurial
+  - subversion
+  - wget
+  - curl
+  - vim
+  - iptables
+  - sqlite3
+  - libsqlite3-dev
+  - mysql-server
+  - libmysqld-dev
+  - rsync
+  - dstat
+  - sysstat
   tags: initial_setup
